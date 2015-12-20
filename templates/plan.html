@@ -1,0 +1,10 @@
+{% block body %}
+  {% for plan in plans %}
+    <h2>Study Plan </h2>
+    <ul>
+    {% for date, talk in plan %}
+      <li>{{ date.strftime('%m-%d-%Y') }} -- {{ talk.title }}, {{talk.author}} ({{ talk.year }}-{{ talk.month }})</li>
+    {% endfor %}
+    </ul>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block body %}
+<form action="/" method="post">
+  <label>Start Date<input type="date" name="start_date" /></label>
+  <label>End Date<input type="date" name="end_date" /></label>
+  <label>Number of Study Periods<input name="number_of_plans" type="range" min="1" max="5" step="1" /></label>
+  <button type="submit" value="submit">Get Study Plan</button>
+</form>
+{% endblock %}
