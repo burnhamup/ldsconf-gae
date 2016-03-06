@@ -1,10 +1,27 @@
 {% extends "base.html" %}
 
 {% block body %}
+<p>
+    Study the talks from the General Conference of the Church of Jesus Christ of Latter-Day Saints. This will generate
+    a plan with a talk to study each day. The plan will have all of the talks from the most recent conference and then
+    fill the rest of the days with older talks chosen at random. Choose how many times you wish to study the most recent
+    conference talks.
+</p>
+
 <form action="/" method="post">
-  <label>Start Date<input type="date" name="start_date" min="1970-01-01" max="9999-12-31"/></label><br />
-  <label>End Date<input type="date" name="end_date" min="1970-01-01" max="9999-12-31"/></label><br />
-  <label>Number of Study Periods<input name="number_of_plans" type="number" min="1" max="5" step="1" /></label><br />
-  <button type="submit" value="submit">Get Study Plan</button>
+    <div class="form-group">
+        <label for="form-start-date">Start Date:</label>
+        <input id="form-start-date" class="form-control" type="date" name="start_date" min="1970-01-01" max="9999-12-31" value="{{ default_start_date }}"/>
+    </div>
+    <div class="form-group">
+        <label for="form-end-date">End Date:</label>
+        <input id="form-end-date" class="form-control" type="date" name="end_date" min="1970-01-01" max="9999-12-31" value="{{ default_end_date }}"/>
+    </div>
+  <div class="form-group">
+      <label for="form-number-of-plans">Number of Study Periods:</label>
+      <input id="form-number-of-plans" class="form-control" name="number_of_plans" type="number" min="1" max="5" step="1" value="3"/>
+  </div>
+
+  <button type="submit" value="submit" class="btn btn-default">Get Study Plan</button>
 </form>
 {% endblock %}

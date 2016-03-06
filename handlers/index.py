@@ -17,7 +17,12 @@ GAE_CONFERENCE_FILE = os.path.join(os.path.dirname(__file__), '..', 'data', 'con
 class IndexHandler(webapp2.RequestHandler):
   def get(self):
     template = JINJA_ENVIRONMENT.get_template('index.html')
-    self.response.write(template.render({}))
+    default_start_date, default_end_date = ldsconf.studyplan.get_default_dates()
+    template_args = {
+      'default_start_date': default_start_date,
+      'default_end_date': default_end_date,
+    }
+    self.response.write(template.render(template_args))
   
   def post(self):
     try:
