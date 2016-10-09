@@ -42,8 +42,14 @@ class IndexHandler(webapp2.RequestHandler):
     template = JINJA_ENVIRONMENT.get_template('plan.html')
     self.response.write(template.render({'plans': result}))
 
+class ExampleHandler(webapp2.RequestHandler):
+  def get(self):
+    template = JINJA_ENVIRONMENT.get_template('example.html')
+    self.response.write(template.render())
+
 
 
 app = webapp2.WSGIApplication([
   ('/', IndexHandler),
+  ('/example', ExampleHandler)
 ], debug=True)

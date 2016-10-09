@@ -5,7 +5,7 @@
     <h2>Study Plan </h2>
     <ul>
     {% for date, talk in plan %}
-      <li>{{ date.strftime('%m-%d-%Y') }} -- {{ talk.title }}, {{talk.author}} ({{ talk.year }}-{{ talk.month }})</li>
+      <li>{{ date.strftime('%m-%d-%Y') }} -- <a href="{{ talk.url }}">{{ talk.title }}</a>, {{talk.author}} ({{ talk.year }}-{{ talk.month }})</li>
     {% endfor %}
     </ul>
   {% endfor %}
