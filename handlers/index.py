@@ -42,14 +42,21 @@ class IndexHandler(webapp2.RequestHandler):
     template = JINJA_ENVIRONMENT.get_template('plan.html')
     self.response.write(template.render({'plans': result}))
 
+
 class ExampleHandler(webapp2.RequestHandler):
   def get(self):
     template = JINJA_ENVIRONMENT.get_template('example.html')
     self.response.write(template.render())
 
 
+class RSSExampleHandler(webapp2.RequestHandler):
+  def get(self):
+    pass
+
+
 
 app = webapp2.WSGIApplication([
   ('/', IndexHandler),
-  ('/example', ExampleHandler)
+  ('/example', ExampleHandler),
+  ('/example/rss', RSSExampleHandler)
 ], debug=True)
